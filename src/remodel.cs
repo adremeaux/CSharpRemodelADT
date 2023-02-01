@@ -9,6 +9,7 @@ using System.Linq;
 Code generator for creating C# Algebraic Data Type implementations from a template
 
 Based on Facebook's Remodel tool: https://github.com/facebook/remodel
+And this C# ADT Implementation: http://bit.ramapo.edu/courses/opl/control/adt/cs.html
 
 #### Build
 Compile for .NET 7+ (https://github.com/dotnet/roslyn):  

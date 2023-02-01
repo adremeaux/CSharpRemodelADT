@@ -2,7 +2,8 @@
 
 Code generator for creating C# Algebraic Data Type implementations from a template
 
-Based on Facebook's Remodel tool: https://github.com/facebook/remodel
+Based on Facebook's Remodel tool: https://github.com/facebook/remodel  
+And this C# ADT Implementation: http://bugsquash.blogspot.com/2012/01/encoding-algebraic-data-types-in-c.html
 
 #### Build
 
@@ -39,13 +40,20 @@ directories and generate corresponding <class_name>.cs files in the same directo
 - Preceding a base level variable with `%` will generate it with a default value in the constructor:
 
 ```
-//SomeField.adtValue
-//int i
-//%SomeClass sc
+//SomeADT.adtValue
+//SomeADT {
+//  int i
+//  %SomeClass sc
+//  SomeField {
+//    ...
+//  }
+//}
 
-public sealed class SomeField {
-  public SomeField(int i, SomeClass sc = default(SomeClass)) {
+public abstract class SomeADT {
   ...
+  public sealed class SomeField {
+    public SomeField(int i, SomeClass sc = default(SomeClass)) {
+    ...
 ```
 
 - Preceding a base level line with a `#` will cause that lined to be inserted into the base class
